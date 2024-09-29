@@ -26,11 +26,15 @@ class MatchingService(BaseResource):
 
         d_service = self.data_service
 
+        user_profile = d_service.get_data_object(
+            self.database, self.collection, key_field=self.key_field, key_value=key
+        )
+
         research_profile = d_service.get_data_object(
             self.database, self.collection, key_field=self.key_field, key_value=key
         )
 
-        user_profile = requests.get("http://localhost:8002/researcher_profile/123")
+        # user_profile = requests.get("http://localhost:8002/researcher_profile/123")
         ranking = self.generate_ranking(user_profile, research_profile)
 
         return ranking
