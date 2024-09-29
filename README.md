@@ -16,6 +16,12 @@ pip3 install -r requirements.txt
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8001
 ```
 
+```
+tmux attach -t B
+source pj1/bin/activate
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8001
+```
+
 Or use docker
 
 ```
